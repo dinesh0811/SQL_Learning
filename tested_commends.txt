@@ -112,6 +112,10 @@ values
 ( 16, "Womens's Polo", 10.00, "It's is deleted and reinserted product", "hip_hip.jpg", 10, 2)
 
 select * from products
+
+Mentor's Result: 
+insert into products 
+select productid+16, name, price, description, image, stock, categoryid from products;
 ________________________________________________
 
 Task - 2
@@ -125,6 +129,13 @@ insert into categories (categoryid,name) values (5, "testers")
 -- updating the product table 
 update products set categoryid = 5 where productid >= 15;
 -- select * from products
+
+Mentor's Result:
+--Adding a new row to the table
+insert into categories values (5, "testers");
+
+-- updating the product table 
+update products set categoryid=5 where name like "%tester%";
 ________________________________________________
 /* Adding a new column to the table
 alter table categories add testers varchar(100); */
