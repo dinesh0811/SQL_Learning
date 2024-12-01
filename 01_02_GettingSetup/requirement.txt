@@ -1,0 +1,6 @@
+Use this files to learn sql;
+
+1. Install latest Python to your machine ad complete the setup
+2. Install SQLiteStudio file to you machine 
+
+Add the "FAKE_CAR_DATA.db" to the DB
