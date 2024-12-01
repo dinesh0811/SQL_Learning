@@ -1,0 +1,133 @@
+select * from FAKE_CAR_DATA
+
+select last_name from FAKE_CAR_DATA
+
+select * from FAKE_CAR_DATA 
+where vehicle_year between '1990' and '2000';
+
+
+select * from FAKE_CAR_DATA 
+where vehicle_year between '1990' and '2000' order by vehicle_year
+
+select * from FAKE_CAR_DATA 
+where vehicle_year between '1990' and '2000' order by vehicle_year desc limit 10 offset 50;
+
+__________________________________________________
+
+fakeuser1@gmail.com
+pwd : 1234
+
+--select * from cart;
+
+--select * from products where productid in (1, 2)
+
+-- select address1 from users where address1 like '%%';
+
+-- select stock, productid, name from products 
+
+-- select * from products inner join cart on cart.productid = products.productid
+
+select * from products inner join categories on categories.categoryid = products.categoryid;
+
+-- select firstname from users join cart on users.userid = cart.userid
+
+-- select * from cart join products on cart.productid = products.productid
+
+-- select * from cart join products on products.productid = cart.productid
+
+ select distinct firstname from users join cart on users.userid = cart.userid
+
+also learn about outer join in w3schools
+__________________________________________________
+
+
+/* Create a singole query that will give you the price, description and category name of all products that have a rpice greater than $10. Ensure that the result is sorted by price*/
+
+select P.price, P.description, C.name from products as P join categories as C 
+on C.categoryId = P.categoryId 
+where price > 10 
+order by price asc ;
+
+select P.price, P.description, C.name from products as P join categories as C 
+on P.categoryId = C.categoryId 
+where price > 10 
+order by price asc ;
+
+__________________________________________________
+-- select * from users
+
+insert into users (userid, password, email, firstname, lastname, address1, zipcode, city, state, country, phone) 
+values 
+(3, "827ccb0eea8a706c4c34a16891f84e7b", "fakeuser3@gmail.com", "Dinesh", "Baskaran", "Ranipet", 632517, "Ranipet", "Tamlnadu", "India", 1234567890);
+
+We can use makaroo to add unlimited data in the DB
+Using that I have added 100 users within minimal time.
+
+__________________________________________________
+-- Updat the name for a esisting product
+
+update products set name = "Very very long female named product"
+where productid = 2
+
+select name from products where productid = 2
+
+__________________________________________________
+update users set password = "827ccb0eea8a706c4c34a16891f84e7b" where userid > 5;
+
+select * from users
+
+update users set password = "jFLMD2" where userid between 5 and 10;
+
+select * from users
+
+__________________________________________________
+
+-- Deleting (be careful when you using this query)
+
+select * from products
+
+delete from cart where productid = 2
+
+delete from products
+where productid = 2
+
+________________________________________________
+insert into products (productid, name, price, description, image, stock, categoryid)
+values ( 2, "Womens's Polo", 10.00, "It's is deleted and reinserted product", "hip_hip.jpg", 10, 2)
+________________________________________________
+
+delete FROM cart where productid > 5
+
+select * from cart
+________________________________________________
+
+Task - 1
+
+
+-- Duplicate the rows in the product table so there are twice as many items available in the "store"
+
+insert into products (productid, name, price, description, image, stock, categoryid)
+values 
+( 15, "Womens's Polo", 10.00, "It's is deleted and reinserted product", "hip_hip.jpg", 10, 2),
+( 16, "Womens's Polo", 10.00, "It's is deleted and reinserted product", "hip_hip.jpg", 10, 2)
+
+select * from products
+________________________________________________
+
+Task - 2
+
+-- select * from categories
+
+-- Add a new category to the categories table called "testers" and then modify the products table so all products that have "tester" in the name belong to the category
+--Adding a new row to the table
+insert into categories (categoryid,name) values (5, "testers") 
+
+-- updating the product table 
+update products set categoryid = 5 where productid >= 15;
+-- select * from products
+________________________________________________
+/* Adding a new column to the table
+alter table categories add testers varchar(100); */
+
+/* Removing a column in existing table
+alter table categories drop column testers;*/
