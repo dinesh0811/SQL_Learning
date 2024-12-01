@@ -1,0 +1,1 @@
+Adding all .jpeg files 
